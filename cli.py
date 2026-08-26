@@ -1,5 +1,5 @@
 import argparse
-from storage import load_tasks, save_tasks
+from storage import load_tasks, save_tasks, mark_done
 from task import Task
 
 def create_parser():
@@ -10,6 +10,9 @@ def create_parser():
     add_parser.add_argument("title", type=str, help="Task title")
 
     subparsers.add_parser("list", help="List all tasks")
+
+    done_parser = subparsers.add_parser("done", help="Mark a task as completed")
+    done_parser.add_argument("id", type=int, help="Task ID")
 
     return parser
 
@@ -29,3 +32,9 @@ def list_tasks():
     for t in tasks:
         status = "?" if t["completed"] else " "
         print(f"[{t['id']}] [{status}] {t['title']}")
+
+def complete_task(task_id):
+    if mark_done(task_id):
+        print(f"Task [{task_id}] marked as completed.")
+    else:
+        print(f"Task [{task_id}] not found.")
