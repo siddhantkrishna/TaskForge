@@ -21,3 +21,11 @@ def mark_done(task_id):
             save_tasks(tasks)
             return True
     return False
+
+def delete_task(task_id):
+    tasks = load_tasks()
+    new_tasks = [t for t in tasks if t["id"] != task_id]
+    if len(new_tasks) < len(tasks):
+        save_tasks(new_tasks)
+        return True
+    return False
