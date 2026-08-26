@@ -1,15 +1,3 @@
-# TaskForge
-
-A lightweight command-line task management tool written in Python.
-
-## Usage
-
-```bash
-python main.py add "Buy groceries"
-python main.py list
-
-```powershell
-@'
 import json
 import os
 
