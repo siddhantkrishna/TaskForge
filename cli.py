@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 from storage import load_tasks, save_tasks, mark_done
 from task import Task
 
@@ -30,7 +30,7 @@ def list_tasks():
         print("No tasks found.")
         return
     for t in tasks:
-        status = "?" if t["completed"] else " "
+        status = "x" if t["completed"] else " "
         print(f"[{t['id']}] [{status}] {t['title']}")
 
 def complete_task(task_id):

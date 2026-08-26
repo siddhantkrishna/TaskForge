@@ -1,4 +1,4 @@
-import json
+﻿import json
 import os
 
 DATA_FILE = "tasks.json"

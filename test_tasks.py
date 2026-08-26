@@ -1,4 +1,4 @@
-import unittest
+﻿import unittest
 from task import Task
 
 class TestTaskModel(unittest.TestCase):
@@ -9,5 +9,5 @@ class TestTaskModel(unittest.TestCase):
         self.assertEqual(t.priority, "high")
         self.assertFalse(t.completed)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

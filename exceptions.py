@@ -1,4 +1,4 @@
-class TaskNotFoundError(Exception):
+﻿class TaskNotFoundError(Exception):
     """Raised when a task with a given ID is not found."""
     pass
 

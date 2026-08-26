@@ -1,5 +1,4 @@
-import sys
-from cli import create_parser, add_task, list_tasks, complete_task
+﻿from cli import create_parser, add_task, list_tasks, complete_task
 
 def main():
     parser = create_parser()

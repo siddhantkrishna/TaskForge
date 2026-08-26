@@ -1,4 +1,4 @@
-class Task:
+﻿class Task:
     def __init__(self, task_id, title, priority="medium", completed=False):
         self.task_id = task_id
         self.title = title
