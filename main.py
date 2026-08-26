@@ -1,5 +1,5 @@
 import sys
-from cli import create_parser, add_task, list_tasks
+from cli import create_parser, add_task, list_tasks, complete_task
 
 def main():
     parser = create_parser()
@@ -9,6 +9,8 @@ def main():
         add_task(args.title)
     elif args.command == "list":
         list_tasks()
+    elif args.command == "done":
+        complete_task(args.id)
     else:
         parser.print_help()
 
