@@ -1,5 +1,5 @@
 ﻿import argparse
-from storage import load_tasks, save_tasks, mark_done
+from storage import load_tasks, save_tasks, mark_done, search_tasks
 from task import Task
 
 def create_parser():
@@ -13,6 +13,9 @@ def create_parser():
 
     done_parser = subparsers.add_parser("done", help="Mark a task as completed")
     done_parser.add_argument("id", type=int, help="Task ID")
+
+    search_parser = subparsers.add_parser("search", help="Search tasks by query")
+    search_parser.add_argument("query", type=str, help="Search keyword")
 
     return parser
 
@@ -38,3 +41,13 @@ def complete_task(task_id):
         print(f"Task [{task_id}] marked as completed.")
     else:
         print(f"Task [{task_id}] not found.")
+
+def find_tasks(query):
+    results = search_tasks(query)
+    if not results:
+        print(f"No tasks found matching '{query}'.")
+        return
+    print(f"Found {len(results)} task(s) matching '{query}':")
+    for t in results:
+        status = "x" if t["completed"] else " "
+        print(f"  [{t['id']}] [{status}] {t['title']}")
