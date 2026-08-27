@@ -29,3 +29,7 @@ def delete_task(task_id):
         save_tasks(new_tasks)
         return True
     return False
+
+def search_tasks(keyword):
+    tasks = load_tasks()
+    return [t for t in tasks if keyword.lower() in t["title"].lower()]
