@@ -33,3 +33,10 @@ def delete_task(task_id):
 def search_tasks(keyword):
     tasks = load_tasks()
     return [t for t in tasks if keyword.lower() in t["title"].lower()]
+
+def clear_completed():
+    tasks = load_tasks()
+    remaining = [t for t in tasks if not t["completed"]]
+    cleared_count = len(tasks) - len(remaining)
+    save_tasks(remaining)
+    return cleared_count
